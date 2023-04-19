@@ -51,8 +51,10 @@ bool Empty(Node* node) {
 void Push(Node*& node, int x) {
 	addFirst(node, x);
 }
-void Pop(Node*& node) {
+Node* Pop(Node*& node) {
+	Node* tmp = node;
 	node = node->next;
+	return tmp;
 }
 int Peek(Node* node) {
 	return node->data;
@@ -86,7 +88,8 @@ int main() {
 		tmp = tmp->next;
 	}
 	cout << endl;
-	Pop(a.info);
+	cout<< "Phan tu duoc lay ra khoi danh sach: " << Pop(a.info)->data << endl;
+	cout << "Danh sach con lai: \n";
 	Node* tmp2 = a.info;
 	while (tmp2 != NULL) {
 		cout << tmp2->data << "  ";
