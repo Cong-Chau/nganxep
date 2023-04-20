@@ -51,10 +51,20 @@ void addLast(Queue& hd, int x) {
 		hd.tail = last->next;
 	}
 }
+void addFirst(Queue& qu, int x) {
+	Node* tmp = makeNode(x);
+	if (qu.head == NULL) {
+		qu.head = qu.tail = tmp;
+	}
+	else {
+		tmp->next = qu.head;
+		qu.head = tmp;
+	}
+}
 
 
 void enQueue(Queue& qu, int x) {
-	addLast(qu, x);
+	addFirst(qu, x);
 }
 void deleteLast(Queue& qu) {
 	Node* tmp = qu.head;
